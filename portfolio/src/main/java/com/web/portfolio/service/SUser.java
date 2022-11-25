@@ -1,6 +1,6 @@
 package com.web.portfolio.service;
 
-import com.web.portfolio.entity.User;
+import com.web.portfolio.model.User;
 import com.web.portfolio.repository.RUser;
 import java.util.List;
 import java.util.Optional;
@@ -29,10 +29,7 @@ public class SUser {
     
     public void Delete(Long id) {
         rUser.deleteById(id);
-    }
-
-    
-    
+    }     
     
     
 }
