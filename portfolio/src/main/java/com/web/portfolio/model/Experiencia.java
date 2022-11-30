@@ -1,7 +1,6 @@
 
 package com.web.portfolio.model;
 
-import java.time.LocalTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,12 +22,11 @@ public class Experiencia {
     private String periodo_desde;
     private String periodo_hasta;    
     private String descripcion;
-    private LocalTime fechayhora;       
 
     public Experiencia() {
     }
 
-    public Experiencia(Long persona_id, String empresa, String web, String logo, String puesto, String periodo_desde, String periodo_hasta, String descripcion, LocalTime fechayhora) {
+    public Experiencia(Long persona_id, String empresa, String web, String logo, String puesto, String periodo_desde, String periodo_hasta, String descripcion) {
         this.persona_id = persona_id;
         this.empresa = empresa;
         this.web = web;
@@ -37,7 +35,6 @@ public class Experiencia {
         this.periodo_desde = periodo_desde;
         this.periodo_hasta = periodo_hasta;
         this.descripcion = descripcion;
-        this.fechayhora = fechayhora;
     }
    
 }

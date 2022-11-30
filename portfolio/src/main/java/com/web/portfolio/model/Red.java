@@ -1,7 +1,6 @@
 
 package com.web.portfolio.model;
 
-import java.time.LocalTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,16 +17,14 @@ public class Red {
     private Long persona_id;
     private String red;
     private String link;
-    private LocalTime fechayhora;       
 
     public Red() {
     }
 
-    public Red(Long persona_id, String red, String link, LocalTime fechayhora) {
+    public Red(Long persona_id, String red, String link) {
         this.persona_id = persona_id;
         this.red = red;
         this.link = link;
-        this.fechayhora = fechayhora;
     }
 
     

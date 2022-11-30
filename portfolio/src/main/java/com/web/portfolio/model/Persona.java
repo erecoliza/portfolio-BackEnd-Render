@@ -1,7 +1,6 @@
 
 package com.web.portfolio.model;
 
-import java.time.LocalTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,19 +20,18 @@ public class Persona {
     private String email;
     private String posicion;
     private String acercade;    
-    private LocalTime fechayhora;       
+    
 
     public Persona() {
     }
 
-    public Persona(String apellido_nombre, String imagen, String telefono, String email, String posicion, String acercade, LocalTime fechayhora) {
+    public Persona(String apellido_nombre, String imagen, String telefono, String email, String posicion, String acercade) {
         this.apellido_nombre = apellido_nombre;
         this.imagen = imagen;
         this.telefono = telefono;
         this.email = email;
         this.posicion = posicion;
-        this.acercade = acercade;
-        this.fechayhora = fechayhora;
+        this.acercade = acercade;        
     }
         
     

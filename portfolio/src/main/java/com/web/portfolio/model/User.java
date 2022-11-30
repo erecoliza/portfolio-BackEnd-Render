@@ -1,6 +1,5 @@
 package com.web.portfolio.model;
 
-import java.time.LocalTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,16 +16,14 @@ public class User {
     private String username;
     private String email;
     private String password;
-    private LocalTime fechayhora;  
 
     public User() {
     }
 
-    public User(String username, String email, String password, LocalTime fechayhora) {
+    public User(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.fechayhora = fechayhora;
     }   
     
     

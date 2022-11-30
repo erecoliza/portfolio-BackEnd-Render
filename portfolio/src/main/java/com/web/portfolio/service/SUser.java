@@ -18,10 +18,14 @@ public class SUser {
         return rUser.findAll();
     }
     
-    public Optional<User> getONe(Long id){
+    public Optional<User> getOne(Long id){
         return rUser.findById(id);
     }
     
+    public List<User> findByname(String username) {
+        return rUser.findByUsername(username);
+    }
+          
     public void Save(User usr) {
         rUser.save(usr);        
     }

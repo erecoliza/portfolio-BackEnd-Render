@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,8 +22,9 @@ public class CUser {
     
     
     @PostMapping("/new/user")
-    public void agregarUsuario(@RequestBody User usr) {
+    public String agregarUsuario(@RequestBody User usr) {
         UserServ.Save(usr);
+        return "El usuario fue creado correctamente";
        } 
     
     @GetMapping("/ver/users")   
@@ -34,13 +36,20 @@ public class CUser {
     @GetMapping("/ver/user/{id}")
     @ResponseBody
     public Optional <User> verUser(@PathVariable Long id) {
-        return UserServ.getONe(Long.MIN_VALUE);
+        return UserServ.getOne(id);
         }
-    
-    
-    @DeleteMapping("/delete/{id}")      
-    public void eliminarUsuario(@PathVariable Long id) {
-            UserServ.Delete(id);
+
+    @GetMapping("/ver/username/{username}")
+    @ResponseBody
+    public List <User> verUsername(@PathVariable String username) {
+        return UserServ.findByname(username);
+        }
+       
+    @DeleteMapping("/delete/user/{id}")      
+    public String eliminarUsuario(@PathVariable Long id) {
+            UserServ.Delete(id);     
+             return "El Usuario fue eliminado correctamente";
         }       
+    
     
 }
