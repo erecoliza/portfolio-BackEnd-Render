@@ -18,10 +18,11 @@ public class SPersona {
         return rPersona.findAll();
     }
     
-    public Optional<Persona> getONe(Long id){
+    public Optional<Persona> getOne(Long id){
         return rPersona.findById(id);
     }
     
+       
     public void Save(Persona pers) {
         rPersona.save(pers);        
     }
