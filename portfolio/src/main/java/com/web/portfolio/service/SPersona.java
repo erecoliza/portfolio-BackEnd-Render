@@ -14,11 +14,11 @@ public class SPersona {
     @Autowired            
     RPersona rPersona;
     
-    public List<Persona> list() {
+    public List <Persona> list() {
         return rPersona.findAll();
     }
     
-    public Optional<Persona> getOne(Long id){
+    public Optional <Persona> getOne(Long id){
         return rPersona.findById(id);
     }
     
