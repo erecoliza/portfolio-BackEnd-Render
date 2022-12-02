@@ -13,8 +13,7 @@ public class Experiencia {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    
+    private Long id;    
     private String empresa;
     private String web;
     private String logo;
@@ -26,7 +25,7 @@ public class Experiencia {
     public Experiencia() {
     }
 
-    public Experiencia(String empresa, String web, String logo, String puesto, String periodo_desde, String periodo_hasta, String descripcion) {
+    public Experiencia( String empresa, String web, String logo, String puesto, String periodo_desde, String periodo_hasta, String descripcion) {        
         this.empresa = empresa;
         this.web = web;
         this.logo = logo;
