@@ -14,7 +14,6 @@ public class Habilidad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long persona_id;
     private String habilidad;
     private int porcentaje;
     private String color;
@@ -22,8 +21,7 @@ public class Habilidad {
     public Habilidad() {
     }
 
-    public Habilidad(Long persona_id, String habilidad, int porcentaje, String color) {
-        this.persona_id = persona_id;
+    public Habilidad(String habilidad, int porcentaje, String color) {
         this.habilidad = habilidad;
         this.porcentaje = porcentaje;
         this.color = color;

@@ -23,7 +23,7 @@ public class CPersona {
     SPersona PersonaServ;
         
     @PostMapping("/new/persona")
-    public void agregarUsuario(@RequestBody Persona pers) {
+    public void agregarPersona(@RequestBody Persona pers) {
         PersonaServ.Save(pers);
        } 
     
