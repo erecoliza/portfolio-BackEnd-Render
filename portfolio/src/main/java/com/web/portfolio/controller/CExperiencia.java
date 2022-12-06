@@ -38,9 +38,9 @@ public class CExperiencia {
         if (StringUtils.isBlank(dtoexp.getEmpresa())) {
             return new ResponseEntity(new Mensaje("Nombre de empresa Obligatorio"), HttpStatus.BAD_REQUEST);
         }
-        if (ExperienciaServ.existByEmpresa(dtoexp.getEmpresa())) {
-            return new ResponseEntity(new Mensaje("Nombre de empresa Ya Existe"), HttpStatus.BAD_REQUEST);
-        }
+        //if (ExperienciaServ.existByEmpresa(dtoexp.getEmpresa())) {
+        //    return new ResponseEntity(new Mensaje("Nombre de empresa Ya Existe"), HttpStatus.BAD_REQUEST);
+        //}
         Experiencia experiencia = new Experiencia(dtoexp.getEmpresa(), dtoexp.getWeb()
                 ,dtoexp.getLogo(), dtoexp.getPuesto(), dtoexp.getPeriodo_desde(), dtoexp.getPeriodo_hasta(), dtoexp.getDescripcion());
         

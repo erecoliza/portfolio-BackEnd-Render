@@ -1,5 +1,6 @@
 package com.web.portfolio.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,10 +8,9 @@ import javax.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
 @Getter @Setter
+@Entity
 public class Experiencia {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;    
@@ -20,6 +20,7 @@ public class Experiencia {
     private String puesto;
     private String periodo_desde;
     private String periodo_hasta;
+    @Column(columnDefinition = "TEXT")
     private String descripcion;
 
     public Experiencia() {
