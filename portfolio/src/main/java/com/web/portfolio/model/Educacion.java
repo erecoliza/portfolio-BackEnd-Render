@@ -1,6 +1,7 @@
 
 package com.web.portfolio.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,21 +14,20 @@ import lombok.Setter;
 public class Educacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private Long persona_id;
+    private Long id;    
     private String establecimiento;
     private String web;
     private String logo;
     private String carrera;
     private String periodo_desde;
-    private String periodo_hasta;    
+    private String periodo_hasta;  
+    @Column(columnDefinition = "TEXT")
     private String descripcion;
     
     public Educacion() {
     }
 
-    public Educacion(Long persona_id, String establecimiento, String web, String logo, String carrera, String periodo_desde, String periodo_hasta, String descripcion) {
-        this.persona_id = persona_id;
+    public Educacion(String establecimiento, String web, String logo, String carrera, String periodo_desde, String periodo_hasta, String descripcion) {
         this.establecimiento = establecimiento;
         this.web = web;
         this.logo = logo;

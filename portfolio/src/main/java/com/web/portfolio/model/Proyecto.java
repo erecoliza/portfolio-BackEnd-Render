@@ -1,6 +1,7 @@
 
 package com.web.portfolio.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,6 +19,7 @@ public class Proyecto {
     private String proyecto;
     private String web;
     private String fecha;
+    @Column(columnDefinition = "TEXT")
     private String descripcion;
 
     public Proyecto() {
