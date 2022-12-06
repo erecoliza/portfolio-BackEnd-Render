@@ -4,7 +4,6 @@ package com.web.portfolio.dto;
 import lombok.Getter;
 import lombok.Setter;
 
-
 @Getter @Setter
 public class DtoExperiencia {
 
