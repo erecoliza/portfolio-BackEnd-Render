@@ -15,7 +15,6 @@ public class Proyecto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long persona_id;
     private String proyecto;
     private String web;
     private String fecha;
@@ -25,8 +24,7 @@ public class Proyecto {
     public Proyecto() {
     }
 
-    public Proyecto(Long persona_id, String proyecto, String web, String fecha, String descripcion) {
-        this.persona_id = persona_id;
+    public Proyecto(String proyecto, String web, String fecha, String descripcion) {
         this.proyecto = proyecto;
         this.web = web;
         this.fecha = fecha;

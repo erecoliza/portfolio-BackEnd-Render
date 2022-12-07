@@ -13,11 +13,11 @@ import lombok.Setter;
 public class Habilidad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id;    
     private String habilidad;
     private int porcentaje;
     private String color;
-
+   
     public Habilidad() {
     }
 
