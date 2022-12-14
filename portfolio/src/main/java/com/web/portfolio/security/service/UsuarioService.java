@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.web.portfolio.security.service;
 
 import com.web.portfolio.security.entity.Usuario;
@@ -11,10 +8,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- *
- * @author gusyedu
- */
+
 @Service
 @Transactional
 public class UsuarioService {
@@ -30,7 +24,7 @@ public class UsuarioService {
     }
 
     public boolean existsByEmail(String email) {
-        return iusuarioRepository.existsbyEmail(email);                
+        return iusuarioRepository.existsByEmail(email);                
     }
     public void save(Usuario usuario){
         iusuarioRepository.save(usuario);

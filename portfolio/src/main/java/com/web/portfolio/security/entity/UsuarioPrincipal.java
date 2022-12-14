@@ -1,10 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.web.portfolio.security.entity;
 
-import static com.sun.tools.javac.util.List.collector;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -13,6 +9,9 @@ import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+@Setter
+@Getter
 
 public class UsuarioPrincipal implements UserDetails {
 
@@ -37,7 +36,7 @@ public class UsuarioPrincipal implements UserDetails {
         List<GrantedAuthority> authorities = usuario.getRoles().stream()
                 .map(rol -> new SimpleGrantedAuthority(rol.getRolNombre().name())).collect(Collectors
                 .toList());
-        return new UsuarioPrincipal(usuario.getNombre(), usuario.getNombreusuario(),
+        return new UsuarioPrincipal(usuario.getNombre(), usuario.getNombreUsuario(),
                  usuario.getEmail(), usuario.getPassword(), authorities);
 
     }

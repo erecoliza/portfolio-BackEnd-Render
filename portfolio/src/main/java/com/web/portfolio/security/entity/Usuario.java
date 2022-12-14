@@ -31,7 +31,7 @@ public class Usuario {
     private String nombre;
     @NotNull
     @Column(unique = true)
-    private String nombreusuario;
+    private String nombreUsuario;
     @NotNull
     private String email;
     @NotNull
@@ -43,9 +43,9 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(String nombre, String nombreusuario, String email, String password) {
+    public Usuario(String nombre, String nombreUsuario, String email, String password) {
         this.nombre = nombre;
-        this.nombreusuario = nombreusuario;
+        this.nombreUsuario = nombreUsuario;
         this.email = email;
         this.password = password;
     }
