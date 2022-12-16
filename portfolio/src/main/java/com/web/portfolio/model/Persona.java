@@ -26,8 +26,7 @@ public class Persona {
     public Persona() {
     }
 
-    public Persona(Long id, String apellido_nombre, String imagen, String telefono, String email, String posicion, String acercade) {
-        this.id = id;
+    public Persona(String apellido_nombre, String imagen, String telefono, String email, String posicion, String acercade) {
         this.apellido_nombre = apellido_nombre;
         this.imagen = imagen;
         this.telefono = telefono;

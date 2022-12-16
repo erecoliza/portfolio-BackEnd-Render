@@ -9,6 +9,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,55 +28,72 @@ public class CHabilidad {
     @Autowired
     SHabilidad HabilidadServ;
 
-    @GetMapping("/ver/habilidades")
+    @GetMapping("/list")
     public ResponseEntity<List<Habilidad>> list() {
         List<Habilidad> list = HabilidadServ.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
 
-    @PostMapping("/new/habilidad")
+    @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/detail/{id}")
+    public ResponseEntity<Habilidad> getById(@PathVariable("id") long id) {
+        if (!HabilidadServ.existById(id)) {
+            return new ResponseEntity(new Mensaje("No existe el ID"), HttpStatus.BAD_REQUEST);
+        }
+
+        Habilidad habilidad = HabilidadServ.getOne(id).get();
+        return new ResponseEntity(habilidad, HttpStatus.OK);
+
+    }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @PostMapping("/new")
     public ResponseEntity<?> create(@RequestBody DtoHabilidad dtohab) {
         if (StringUtils.isBlank(dtohab.getHabilidad())) {
             return new ResponseEntity(new Mensaje("Nombre de habilidad Obligatorio"), HttpStatus.BAD_REQUEST);
         }
-        //if (HabilidadServ.existByHabilidad(dtohab.getHabilidad())) {
-        //    return new ResponseEntity(new Mensaje("Nombre de habilidad Ya Existe"), HttpStatus.BAD_REQUEST);
-        //}
+        if (HabilidadServ.existByHabilidad(dtohab.getHabilidad())) {
+            return new ResponseEntity(new Mensaje("Nombre de habilidad Ya Existe"), HttpStatus.BAD_REQUEST);
+        }
         Habilidad habilidad = new Habilidad(dtohab.getHabilidad(), dtohab.getPorcentaje(), dtohab.getColor());
-                
-        
+
         HabilidadServ.Save(habilidad);
 
         return new ResponseEntity(new Mensaje("Habilidad Agregada"), HttpStatus.OK);
     }
-    
-    @PutMapping("/update/habilidad/{id}")
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") Long id, @RequestBody DtoHabilidad dtohab) {
-        if(!HabilidadServ.existById(id))
+        if (!HabilidadServ.existById(id)) {
             return new ResponseEntity(new Mensaje("El ID no Existe"), HttpStatus.BAD_REQUEST);
+        }
         //        if(HabilidadServ.existByHabilidad(dtohab.getHabilidad()))
 //            return new ResponseEntity(new Mensaje("Esa Habilidad YA Existe"), HttpStatus.BAD_REQUEST);
-       if(StringUtils.isBlank(dtohab.getHabilidad()))      
-           return new ResponseEntity(new Mensaje("Nombre de Habilidad no debe ser blanco"), HttpStatus.BAD_REQUEST);
-       
-       Habilidad habilidad = HabilidadServ.getOne(id).get();
-       habilidad.setHabilidad(dtohab.getHabilidad());
-       habilidad.setPorcentaje(dtohab.getPorcentaje());
-       habilidad.setColor(dtohab.getColor());
-             
-       HabilidadServ.Save(habilidad);
-       
-       return new ResponseEntity(new Mensaje("Habilidad Actualizada"), HttpStatus.OK);
+        if (StringUtils.isBlank(dtohab.getHabilidad())) {
+            return new ResponseEntity(new Mensaje("Nombre de Habilidad no debe ser blanco"), HttpStatus.BAD_REQUEST);
+        }
+
+        Habilidad habilidad = HabilidadServ.getOne(id).get();
+        habilidad.setHabilidad(dtohab.getHabilidad());
+        habilidad.setPorcentaje(dtohab.getPorcentaje());
+        habilidad.setColor(dtohab.getColor());
+
+        HabilidadServ.Save(habilidad);
+
+        return new ResponseEntity(new Mensaje("Habilidad Actualizada"), HttpStatus.OK);
     }
-    
-    @DeleteMapping("/delete/habilidad/{id}")    
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") Long id, @RequestBody DtoHabilidad dtohab) {
-       if(!HabilidadServ.existById(id))
+        if (!HabilidadServ.existById(id)) {
             return new ResponseEntity(new Mensaje("El ID no Existe"), HttpStatus.BAD_REQUEST);
-       
-       HabilidadServ.Delete(id);
-       
-       return new ResponseEntity(new Mensaje("Habilidad Eliminada"), HttpStatus.OK);
+        }
+
+        HabilidadServ.Delete(id);
+
+        return new ResponseEntity(new Mensaje("Habilidad Eliminada"), HttpStatus.OK);
     }
 
 }

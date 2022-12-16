@@ -31,5 +31,12 @@ public class SPersona {
         rPersona.deleteById(id);
     }     
     
+    public boolean existById(Long id) {
+        return rPersona.existsById(id);
+    }
+    
+   // public boolean existByApellido_nombre(String apellido_nombre) {
+   //     return rPersona.existsByApellido_nombre(apellido_nombre);
+    //}
     
 }

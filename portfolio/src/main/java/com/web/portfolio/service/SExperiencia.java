@@ -39,8 +39,8 @@ public class SExperiencia {
         return rExperiencia.existsById(id);
     }
 
-    //public boolean existByEmpresa(String empresa) {
-        //return rExperiencia.existByEmpresa(empresa);
-    //}
+    public boolean existByEmpresa(String empresa) {
+        return rExperiencia.existsByEmpresa(empresa);
+    }
 
 }

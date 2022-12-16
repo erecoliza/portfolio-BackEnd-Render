@@ -39,8 +39,8 @@ public class SEducacion {
         return rEducacion.existsById(id);
     }
 
-    //public boolean existByEmpresa(String empresa) {
-        //return rExperiencia.existByEmpresa(empresa);
-    //}
+    public boolean existByEstablecimiento(String establecimiento) {
+        return rEducacion.existsByEstablecimiento(establecimiento);
+    }
 
 }

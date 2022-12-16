@@ -39,8 +39,8 @@ public class SHabilidad {
         return rHabilidad.existsById(id);
     }
 
-    //public boolean existByEmpresa(String empresa) {
-        //return rExperiencia.existByEmpresa(empresa);
-    //}
+    public boolean existByHabilidad(String habilidad) {
+        return rHabilidad.existsByHabilidad(habilidad);
+    }
 
 }
