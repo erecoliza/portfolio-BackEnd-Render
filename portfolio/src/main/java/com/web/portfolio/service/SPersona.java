@@ -35,8 +35,8 @@ public class SPersona {
         return rPersona.existsById(id);
     }
     
-   // public boolean existByApellido_nombre(String apellido_nombre) {
-   //     return rPersona.existsByApellido_nombre(apellido_nombre);
-    //}
+    public boolean existByApellidonombre(String apellidonombre) {
+        return rPersona.existsByApellidonombre(apellidonombre);     
+    }
     
 }

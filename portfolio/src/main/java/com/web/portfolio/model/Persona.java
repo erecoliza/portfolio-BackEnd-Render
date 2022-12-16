@@ -10,12 +10,14 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
+
 @Entity
 public class Persona {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String apellido_nombre;
+    private Long id;    
+    @Column(name = "apellido_nombre")
+    private String apellidonombre;
     private String imagen;
     private String telefono;
     private String email;
@@ -26,8 +28,8 @@ public class Persona {
     public Persona() {
     }
 
-    public Persona(String apellido_nombre, String imagen, String telefono, String email, String posicion, String acercade) {
-        this.apellido_nombre = apellido_nombre;
+    public Persona(String apellidonombre, String imagen, String telefono, String email, String posicion, String acercade) {
+        this.apellidonombre = apellidonombre;
         this.imagen = imagen;
         this.telefono = telefono;
         this.email = email;

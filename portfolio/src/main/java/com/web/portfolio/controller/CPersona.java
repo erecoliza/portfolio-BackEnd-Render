@@ -22,11 +22,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
-
 @RestController
 @RequestMapping("persona")
 @CrossOrigin(origins = "http://localhost:4200")
-
 public class CPersona {
     
     @Autowired SPersona PersonaServ;
@@ -50,13 +48,13 @@ public class CPersona {
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/new")
     public ResponseEntity<?> create(@RequestBody DtoPersona dtopers) {
-        if (StringUtils.isBlank(dtopers.getApellido_nombre())) {
+        if (StringUtils.isBlank(dtopers.getApellidonombre())) {
             return new ResponseEntity(new Mensaje("Apellido y Nombre Obligatorio"), HttpStatus.BAD_REQUEST);
         }
-        //if(PersonaServ.existByApellido_nombre(dtopers.getApellido_nombre())) {            
-        //    return new ResponseEntity(new Mensaje("Apellido y Nombre Ya Existe"), HttpStatus.BAD_REQUEST);
-        //}
-        Persona persona = new Persona(dtopers.getApellido_nombre(), dtopers.getImagen() 
+        if(PersonaServ.existByApellidonombre(dtopers.getApellidonombre())) {            
+            return new ResponseEntity(new Mensaje("Apellido y Nombre Ya Existe"), HttpStatus.BAD_REQUEST);
+        }
+        Persona persona = new Persona(dtopers.getApellidonombre(), dtopers.getImagen() 
                 ,dtopers.getTelefono(), dtopers.getEmail(), dtopers.getPosicion()
                 , dtopers.getAcercade());        
         PersonaServ.Save(persona);
@@ -68,13 +66,13 @@ public class CPersona {
     public ResponseEntity<?> update(@PathVariable("id") Long id, @RequestBody DtoPersona dtopers) {
         if(!PersonaServ.existById(id))
             return new ResponseEntity(new Mensaje("El ID no Existe"), HttpStatus.BAD_REQUEST);
-        //if(PersonaServ.existByApellido_nombre(dtopers.getApellido_nombre()))
-        //    return new ResponseEntity(new Mensaje("Esa Persona YA Existe"), HttpStatus.BAD_REQUEST);
-       if(StringUtils.isBlank(dtopers.getApellido_nombre()))      
+        if(PersonaServ.existByApellidonombre(dtopers.getApellidonombre()))
+            return new ResponseEntity(new Mensaje("Esa Persona YA Existe"), HttpStatus.BAD_REQUEST);
+       if(StringUtils.isBlank(dtopers.getApellidonombre()))      
            return new ResponseEntity(new Mensaje("Apellido y Nombre no debe ser blanco"), HttpStatus.BAD_REQUEST);
        
        Persona persona = PersonaServ.getOne(id).get();       
-       persona.setApellido_nombre(dtopers.getApellido_nombre());
+       persona.setApellidonombre(dtopers.getApellidonombre());
        persona.setImagen(dtopers.getImagen());
        persona.setTelefono(dtopers.getTelefono());
        persona.setEmail(dtopers.getEmail());

@@ -6,7 +6,8 @@ import lombok.Setter;
 
 @Getter @Setter
 public class DtoPersona {
-    private String apellido_nombre;
+    
+    private String apellidonombre;
     private String imagen;
     private String telefono;
     private String email;
@@ -16,8 +17,8 @@ public class DtoPersona {
     public DtoPersona() {
     }
 
-    public DtoPersona(String apellido_nombre, String imagen, String telefono, String email, String posicion, String acercade) {
-        this.apellido_nombre = apellido_nombre;
+    public DtoPersona(String apellidonombre, String imagen, String telefono, String email, String posicion, String acercade) {
+        this.apellidonombre = apellidonombre;
         this.imagen = imagen;
         this.telefono = telefono;
         this.email = email;

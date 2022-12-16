@@ -25,8 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "http://localhost:4200")
 public class CEducacion {
 
-    @Autowired
-    SEducacion EducacionServ;
+    @Autowired SEducacion EducacionServ;
 
     @GetMapping("/list")
     public ResponseEntity<List<Educacion>> list() {
