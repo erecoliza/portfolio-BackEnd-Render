@@ -35,7 +35,6 @@ public class CPersona {
         return new ResponseEntity(list, HttpStatus.OK);
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/detail/{id}")
     public ResponseEntity<Persona> getById(@PathVariable("id")long id){
         if(!PersonaServ.existById(id)){

@@ -15,8 +15,7 @@ import lombok.Setter;
 public class Persona {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;    
-    @Column(name = "apellido_nombre")
+    private Long id;        
     private String apellidonombre;
     private String imagen;
     private String telefono;

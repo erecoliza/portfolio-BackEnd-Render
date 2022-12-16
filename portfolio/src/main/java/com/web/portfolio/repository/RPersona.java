@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RPersona extends JpaRepository<Persona, Long> {
     public Optional<Persona> findByApellidonombre(String apellidonombre);
-    public boolean existsByApellidonombre(String apellidonombre);
-    
+    public boolean existsByApellidonombre(String apellidonombre);    
     
 }
