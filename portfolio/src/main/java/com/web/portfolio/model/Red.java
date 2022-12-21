@@ -14,15 +14,13 @@ public class Red {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long persona_id;
     private String red;
     private String link;
 
     public Red() {
     }
 
-    public Red(Long persona_id, String red, String link) {
-        this.persona_id = persona_id;
+    public Red( String red, String link) {
         this.red = red;
         this.link = link;
     }
