@@ -24,8 +24,5 @@ public class Red {
         this.red = red;
         this.link = link;
     }
-
-    
-        
     
 }
