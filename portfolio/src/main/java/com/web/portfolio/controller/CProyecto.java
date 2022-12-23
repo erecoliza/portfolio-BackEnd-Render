@@ -46,7 +46,7 @@ public class CProyecto {
 
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/new")
     public ResponseEntity<?> create(@RequestBody DtoProyecto dtoproy) {
         if (StringUtils.isBlank(dtoproy.getProyecto())) {
@@ -85,9 +85,10 @@ public class CProyecto {
         return new ResponseEntity(new Mensaje("Proyecto Actualizado"), HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasAuthority('ROLE_ADMIN')")    
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> delete(@PathVariable("id") Long id, @RequestBody DtoProyecto dtoproy) {
+    public ResponseEntity<?> delete(@PathVariable("id") Long id) {
         if (!ProyectoServ.existById(id)) {
             return new ResponseEntity(new Mensaje("El ID no Existe"), HttpStatus.BAD_REQUEST);
         }
