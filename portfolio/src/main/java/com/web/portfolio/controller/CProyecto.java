@@ -34,7 +34,7 @@ public class CProyecto {
         return new ResponseEntity(list, HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/detail/{id}")
     public ResponseEntity<Proyecto> getById(@PathVariable("id") long id) {
         if (!ProyectoServ.existById(id)) {
@@ -62,7 +62,7 @@ public class CProyecto {
         return new ResponseEntity(new Mensaje("Proyecto Agregado"), HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") Long id, @RequestBody DtoProyecto dtoproy) {
         if (!ProyectoServ.existById(id)) {
