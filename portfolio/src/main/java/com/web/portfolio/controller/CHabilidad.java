@@ -46,7 +46,7 @@ public class CHabilidad {
 
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/new")
     public ResponseEntity<?> create(@RequestBody DtoHabilidad dtohab) {
         if (StringUtils.isBlank(dtohab.getHabilidad())) {
@@ -62,7 +62,7 @@ public class CHabilidad {
         return new ResponseEntity(new Mensaje("Habilidad Agregada"), HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") Long id, @RequestBody DtoHabilidad dtohab) {
         if (!HabilidadServ.existById(id)) {
@@ -84,9 +84,9 @@ public class CHabilidad {
         return new ResponseEntity(new Mensaje("Habilidad Actualizada"), HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> delete(@PathVariable("id") Long id, @RequestBody DtoHabilidad dtohab) {
+    public ResponseEntity<?> delete(@PathVariable("id") Long id) {
         if (!HabilidadServ.existById(id)) {
             return new ResponseEntity(new Mensaje("El ID no Existe"), HttpStatus.BAD_REQUEST);
         }
