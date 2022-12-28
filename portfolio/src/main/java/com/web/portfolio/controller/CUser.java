@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("user")
-//@CrossOrigin(origins = "http://localhost:4200")
-@CrossOrigin(origins = "https://portfolio-8cf55.web.app")
+
+@CrossOrigin(origins = {"https://erecoliza-portfolio.web.app","http://localhost:4200"})
 
 public class CUser {
     
