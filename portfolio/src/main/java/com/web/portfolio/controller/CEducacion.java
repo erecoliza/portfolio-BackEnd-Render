@@ -35,7 +35,7 @@ public class CEducacion {
         return new ResponseEntity(list, HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/detail/{id}")
     public ResponseEntity<Educacion> getById(@PathVariable("id") long id) {
         if (!EducacionServ.existById(id)) {
@@ -47,7 +47,7 @@ public class CEducacion {
 
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/new")
     public ResponseEntity<?> create(@RequestBody DtoEducacion dtoedu) {
         if (StringUtils.isBlank(dtoedu.getEstablecimiento())) {
@@ -65,7 +65,7 @@ public class CEducacion {
         return new ResponseEntity(new Mensaje("Educacion Agregada"), HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") Long id, @RequestBody DtoEducacion dtoedu) {
         if (!EducacionServ.existById(id)) {
@@ -91,7 +91,7 @@ public class CEducacion {
         return new ResponseEntity(new Mensaje("Educacion Actualizada"), HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") Long id, @RequestBody DtoEducacion dtoexp) {
         if (!EducacionServ.existById(id)) {

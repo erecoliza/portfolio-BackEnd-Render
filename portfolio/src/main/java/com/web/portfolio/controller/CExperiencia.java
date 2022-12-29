@@ -48,7 +48,7 @@ public class CExperiencia {
 
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/new")
     public ResponseEntity<?> create(@RequestBody DtoExperiencia dtoexp) {
         if (StringUtils.isBlank(dtoexp.getEmpresa())) {
@@ -65,7 +65,7 @@ public class CExperiencia {
         return new ResponseEntity(new Mensaje("Empresa Agregada"), HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") Long id, @RequestBody DtoExperiencia dtoexp) {
         if (!ExperienciaServ.existById(id)) {
@@ -92,7 +92,7 @@ public class CExperiencia {
         return new ResponseEntity(new Mensaje("Empresa Actualizada"), HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") Long id, @RequestBody DtoExperiencia dtoexp) {
         if (!ExperienciaServ.existById(id)) {

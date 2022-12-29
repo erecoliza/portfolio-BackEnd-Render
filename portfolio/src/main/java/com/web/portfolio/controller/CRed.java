@@ -37,7 +37,7 @@ public class CRed {
         return new ResponseEntity(list, HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/detail/{id}")
     public ResponseEntity<Educacion> getById(@PathVariable("id") long id) {
         if (!RedServ.existById(id)) {
@@ -66,7 +66,7 @@ public class CRed {
         return new ResponseEntity(new Mensaje("Red Agregada"), HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") Long id, @RequestBody DtoRed dtored) {
         if (!RedServ.existById(id)) {
@@ -87,7 +87,7 @@ public class CRed {
         return new ResponseEntity(new Mensaje("Red Actualizada"), HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") Long id, @RequestBody DtoRed dtored) {
         if (!RedServ.existById(id)) {

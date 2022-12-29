@@ -46,7 +46,7 @@ public class CPersona {
         return new ResponseEntity(persona, HttpStatus.OK);
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/new")
     public ResponseEntity<?> create(@RequestBody DtoPersona dtopers) {
         if (StringUtils.isBlank(dtopers.getApellidonombre())) {
@@ -62,7 +62,7 @@ public class CPersona {
         return new ResponseEntity(new Mensaje("Persona Agregada"), HttpStatus.OK);
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") Long id, @RequestBody DtoPersona dtopers) {
         if(!PersonaServ.existById(id))
@@ -83,7 +83,7 @@ public class CPersona {
        return new ResponseEntity(new Mensaje("Persona Actualizada"), HttpStatus.OK);
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete/{id}")    
     public ResponseEntity<?> delete(@PathVariable("id") Long id, @RequestBody DtoPersona dtopers) {
        if(!PersonaServ.existById(id))
