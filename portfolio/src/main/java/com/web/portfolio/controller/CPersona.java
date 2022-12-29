@@ -65,12 +65,12 @@ public class CPersona {
     //@PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") Long id, @RequestBody DtoPersona dtopers) {
-        if(!PersonaServ.existById(id))
-            return new ResponseEntity(new Mensaje("El ID no Existe"), HttpStatus.BAD_REQUEST);
-        if(PersonaServ.existByApellidonombre(dtopers.getApellidonombre()))
-            return new ResponseEntity(new Mensaje("Esa Persona YA Existe"), HttpStatus.BAD_REQUEST);
-       if(StringUtils.isBlank(dtopers.getApellidonombre()))      
+       if(!PersonaServ.existById(id)){
+            return new ResponseEntity(new Mensaje("El ID no Existe"), HttpStatus.BAD_REQUEST);       
+       }
+       if(StringUtils.isBlank(dtopers.getApellidonombre())) {      
            return new ResponseEntity(new Mensaje("Apellido y Nombre no debe ser blanco"), HttpStatus.BAD_REQUEST);
+       }
        
        Persona persona = PersonaServ.getOne(id).get();       
        persona.setApellidonombre(dtopers.getApellidonombre());

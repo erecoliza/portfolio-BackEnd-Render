@@ -71,9 +71,7 @@ public class CRed {
     public ResponseEntity<?> update(@PathVariable("id") Long id, @RequestBody DtoRed dtored) {
         if (!RedServ.existById(id)) {
             return new ResponseEntity(new Mensaje("El ID no Existe"), HttpStatus.BAD_REQUEST);
-        }
-        //        if(EducacionServ.existByEmpresa(dtoexp.getEmpresa()))
-//            return new ResponseEntity(new Mensaje("Esa Experiencia YA Existe"), HttpStatus.BAD_REQUEST);
+        }       
         if (StringUtils.isBlank(dtored.getRed())) {
             return new ResponseEntity(new Mensaje("Nombre de la Red no debe ser blanco"), HttpStatus.BAD_REQUEST);
         }

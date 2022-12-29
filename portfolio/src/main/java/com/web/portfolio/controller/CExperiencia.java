@@ -71,9 +71,7 @@ public class CExperiencia {
         if (!ExperienciaServ.existById(id)) {
             return new ResponseEntity(new Mensaje("El ID no Existe"), HttpStatus.BAD_REQUEST);
         }
-        if (ExperienciaServ.existByEmpresa(dtoexp.getEmpresa())) {
-            return new ResponseEntity(new Mensaje("Esa Experiencia YA Existe"), HttpStatus.BAD_REQUEST);
-        }
+        
         if (StringUtils.isBlank(dtoexp.getEmpresa())) {
             return new ResponseEntity(new Mensaje("Nombre de Empresa no debe ser blanco"), HttpStatus.BAD_REQUEST);
         }

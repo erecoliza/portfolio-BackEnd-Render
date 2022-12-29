@@ -69,9 +69,7 @@ public class CProyecto {
     public ResponseEntity<?> update(@PathVariable("id") Long id, @RequestBody DtoProyecto dtoproy) {
         if (!ProyectoServ.existById(id)) {
             return new ResponseEntity(new Mensaje("El ID no Existe"), HttpStatus.BAD_REQUEST);
-        }
-        //        if(ProyectoServ.existByProyecto(dtoproy.getProyecto()))
-//            return new ResponseEntity(new Mensaje("Esa Proyecto YA Existe"), HttpStatus.BAD_REQUEST);
+        }        
         if (StringUtils.isBlank(dtoproy.getProyecto())) {
             return new ResponseEntity(new Mensaje("Nombre de Proyecto no debe ser blanco"), HttpStatus.BAD_REQUEST);
         }
