@@ -93,7 +93,7 @@ public class CEducacion {
 
     //@PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> delete(@PathVariable("id") Long id, @RequestBody DtoEducacion dtoexp) {
+    public ResponseEntity<?> delete(@PathVariable("id") Long id) {
         if (!EducacionServ.existById(id)) {
             return new ResponseEntity(new Mensaje("El ID no Existe"), HttpStatus.BAD_REQUEST);
         }
